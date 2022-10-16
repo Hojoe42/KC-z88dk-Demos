@@ -55,7 +55,7 @@ Anfangsadresse, Endadresse und Startadresse enthalten.
 ### Debuginformationen
 
 Im Entwicklungsalltag haben sich die beiden Parameter `--list` und `-g` gelegentlich als nützlich erwiesen. Der Parameter `-g` sorgt für die 
-Ausgabe einer `*.def` Datei. Darin sind alle Symbole (Variablen, konstanten, Methoden, ...) mit ihrer jeweiligen Adresse enthalten. Das hilft im 
+Ausgabe einer `*.def` Datei. Darin sind alle Symbole (Variablen, Konstanten, Methoden, ...) mit ihrer jeweiligen Adresse enthalten. Das hilft im 
 Debugger beim Setzen von Breakpoints.
 Mit `--list` wird der erzeugte Assembler und Maschinencode in `*.lis` Dateien ausgegeben. Das hilft ebenfalls den Überblick im Debugger zu behalten
 und zu prüfen welchen Code der z88dk erzeugt hat.
