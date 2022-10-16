@@ -1,6 +1,7 @@
 # ASM1
 
-In diesem Programm geht es darum wie Assembler Code aufgerufen werden kann. Im Beispiel wird die CAOS Funktion zur Ausgabe eine Zeichens verwendet.
+In diesem Programm geht es um die Verwendung von inline Assembler Code . Im Beispiel wird die CAOS Funktion zur Ausgabe eine Zeichens verwendet. 
+Andere CAOS Funktionen können analog eingebunden werden.
 
 ## Kompilieren
 
