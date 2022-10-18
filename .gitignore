@@ -54,3 +54,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Eclipse files
+.settings/
+.externalToolBuilders
+.project
+.cproject
