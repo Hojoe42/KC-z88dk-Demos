@@ -11,4 +11,4 @@ Verwendung von Assembler Code innerhalb von C.
 Verwendung von externen Assembler Code aus einem C Programm.
 
 - [ClsTest](ClsTest/)
-Verwendung von clg() und clrscr(). Weiterhin wird farbiger Text an bestimmte Cursorpositionen ausgegeben.
+Verwendung von clg() und clrscr(). Weiterhin wird farbiger Text an bestimmte Cursorpositionen ausgegeben. Weiterhin gibt es Hinweise zum Kompilieren mit dem sdcc.
