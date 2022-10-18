@@ -12,3 +12,6 @@ Verwendung von externen Assembler Code aus einem C Programm.
 
 - [ClsTest](ClsTest/)
 Verwendung von clg() und clrscr(). Weiterhin wird farbiger Text an bestimmte Cursorpositionen ausgegeben. Weiterhin gibt es Hinweise zum Kompilieren mit dem sdcc.
+
+-[getkTest](getkTest/)
+Hier wird gezeigt wie die Tastatur nicht blockierend abgefragt werden kann.
