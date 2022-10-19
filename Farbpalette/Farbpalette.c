@@ -136,7 +136,7 @@ void plotPixel(uint16_t x, uint8_t y, uint16_t farbe)
     }
     else
     {
-        uint8_t *farbAdr = berechneFarbAdr( ((255-y) *256) | x>>3 );
+        uint8_t *farbAdr = (uint8_t *)berechneFarbAdr( ((255-y) *256) | x>>3 );
         outp(0x84, 0x2a);
         *farbAdr = (uint8_t)farbe;
         outp(0x84, 0x28);
