@@ -5,7 +5,7 @@ Das Programm wurde ursprünglich geschrieben um einen [Fehler](https://github.co
 
 Das Programm zeigt einen Zähler und den dezimalen Tastaturcode der gerade gedrückten Taste. Wenn keine Taste gedrückt ist, dann wird 0 angezeigt.
 
-Das Programm reagiert auf X und H. Mit X wird das Programm beendet.
+Das Programm reagiert auf die Tasten X und H. Mit X wird das Programm beendet.
 
 ## Kompilieren
 

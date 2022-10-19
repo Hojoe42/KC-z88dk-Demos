@@ -28,9 +28,9 @@ start javaw -jar jkcemu-0.9.8.2.jar
 ```
 
 Je nach Einstellungen muss zuerst auf den KC85/4 umgeschaltet werden. Das geschieht über den Einstellungen Dialog. Dort muss dann der entsprechende KC85 
-ausgewählt werden, siehe dazu ![Einstellungen-KC85/4](/images/JKCEMU-85-4.png).
+ausgewählt werden, siehe dazu: ![Einstellungen-KC85/4](/images/JKCEMU-85-4.png)
 
-Im Datei Laden Dialog kann `HELLOWORLD.KCC` ausgewählt und gestartet werden, siehe: ![Laden](/images/Start-HelloWorld.png).
+Im Datei Laden Dialog kann `HELLOWORLD.KCC` ausgewählt und gestartet werden, siehe: ![Laden](/images/Start-HelloWorld.png)
 
 ## Weitere Details
 
