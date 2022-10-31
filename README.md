@@ -18,3 +18,6 @@ Hier wird gezeigt wie die Tastatur nicht blockierend abgefragt werden kann.
 
 - [Farbpalette](Farbpalette/)
 Zeigt die Farbpalette des KC85/3 oder /4
+
+- [Schocky2](Schocky2/)
+Ein  Spiel für den KC 85/4+. Mehr oder weniger stark angelehnt an das Spiel Crillion vom C64.
