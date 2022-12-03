@@ -29,9 +29,10 @@ FILE *fp;
  */
 void getlno(lnop, c)
 register struct lno *lnop;
-register c;
+register int c;
 {
-	register gn, ln;
+	register int gn;
+	register int ln;
 	static char badlno[] = "Bad line or group number";
 
 	if (c < 0)
@@ -78,9 +79,9 @@ register c;
  * Return the number read.
  */
 int getnum(c)
-register c;
+register int c;
 {
-	register n;
+	register int n;
 
 	n = 0;
 	while (isdigit(c)) {
@@ -152,7 +153,7 @@ char *s;
  */
 int getnb()
 {
-	register c;
+	register int c;
 
 	while ((c = *ctp++)==' ' || c=='\t')
 		;

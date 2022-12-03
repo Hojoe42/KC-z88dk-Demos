@@ -47,7 +47,7 @@ primary()
 			val = val * rop;
 		else if (c == '/')
 			val = val / rop;
-		else 
+		else
 			val = pow(val, rop);
 	}
 	--ctp;
@@ -116,7 +116,7 @@ term()
 	} while (isalnum(c));
 	*cp = 0;
 #ifdef FUNCTIONS
-	if (id[0]=='f' && (sp=lookup(id, S_FUNC, 0))!=NULL) {
+	if ((id[0]=='f' || id[0]=='F') && (sp=lookup(id, S_FUNC, 0))!=NULL) {
 		while (c==' ' || c=='\t')
 			c = *ctp++;
 		if (c != '(')
@@ -146,12 +146,12 @@ term()
 struct	sym *
 lookup(id, type, subs)
 char *id;
-register type;
+register int type;
 int	subs;
 {
 	register struct sym *sp;
 	int	ix;
-	
+
 	ix = hashsym(id, type, subs);
 	sp = sym[ix];
 	while (sp != NULL) {
@@ -167,13 +167,13 @@ int	subs;
 struct sym *
 getsym()
 {
-	register c;
+	register int c;
 	char id[NID];
 	register char *cp;
 	register struct sym *sp;
 	int subs = 0, type;
 	int	ix;
-	
+
 	if (isalpha(c = getnb()) == 0)
 		diag("Missing variable");
 	cp = &id[0];

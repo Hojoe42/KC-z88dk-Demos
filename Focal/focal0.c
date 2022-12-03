@@ -5,15 +5,7 @@
  * a BIG machine.
  * Driver and command handler.
  */
-
-/*)BUILD
-	$(PROGRAM)	= focal
-	$(INCLUDE)	= focal.h proto.h
-	$(FILES)	= { focal0.c focal1.c focal2.c focal3.c }
-	$(ATOD)		= 1
-	$(DTOA)		= 1
-*/
-#ifdef	DOCUMENTATION
+/*
 
 title	focal		Ancient Interpretive Language
 index			Ancient Interpretive Language
@@ -34,7 +26,12 @@ author
 
 	Dave Conroy
 
-#endif
+*/
+/*
+ * 2022: Angepasst für KC58/4 und z88dk von Hojoe
+ */
+
+#pragma printf = "%0s %0d %0f"
 
 #include	"focal.h"
 #ifdef	vms
@@ -51,6 +48,12 @@ author
 #endif
 #endif
 
+#define DEBUG = 1;
+
+char START[] =
+{ 0x7f, 0x7f, 'F', 'O', 'C', 'A', 'L', 0x01, 0xcd, 0x00, 0x10, 0xc9 };
+
+
 char	cbuf[128];			/* Command buffer */
 char	abuf[128];			/* Ask buffer */
 char	*ctp;				/* Current text pointer */
@@ -66,21 +69,38 @@ int	intflag;			/* Interrupt flag */
 
 struct	sym	*sym[N_HASH + 1];	/* Symbol table */
 
+long heap;
+
 int main()
 {
+    // KC spezifische Initialisierung
+    mallinit();
+    sbrk(0x6500, 0x2000-0x500);
+
+
 	register int	c;
 
 #ifdef FUNCTIONS
 	builtin("fsin", fsin);
+	builtin("FSIN", fsin);
 	builtin("fcos", fcos);
+	builtin("FCOS", fcos);
 	builtin("fexp", fexp);
+	builtin("FEXP", fexp);
 	builtin("flog", flog);
+	builtin("FLOG", flog);
 	builtin("fatn", fatn);
+	builtin("FATN", fatn);
 	builtin("fsqt", fsqt);
+	builtin("FSQT", fsqt);
 	builtin("fabs", fabt);
+	builtin("FABS", fabt);
 	builtin("fsgn", fsgn);
+	builtin("FSGN", fsgn);
 	builtin("fitr", fitr);
+	builtin("FITR", fitr);
 	builtin("fran", fran);
+	builtin("FRAN", fran);
 #endif
 	setjmp(env);
 	catchcc();
@@ -90,6 +110,21 @@ int main()
 			putchar('\n');
 			break;
 		}
+
+		// Aktuell liefert die gets() Funktion im z88dk noch ein \n am Zeilenende, dass da laut C Spec nicht hin gehört
+		// hier wird ein eventuell vorhandenes \n durch \0 ersetzt
+		char *tmp = cbuf;
+	    int c;
+	    while ((c = *tmp++) )
+	    {
+	        if(c == 0) break;
+	        if(c == '\n')
+	        {
+	            *--tmp = 0;
+	            break;
+	        }
+	    }
+
 		mode = C_TOP;
 		clp  = NULL;
 		ctp  = cbuf;
@@ -118,7 +153,7 @@ double	(*fp)();
 {
 	register struct sym *sp = NULL;
 	int	ix;
-	
+
 	sp = (struct sym *)malloc(sizeof(*sp)+strlen(cp)+1);
 	if (sp == NULL) {
 		fprintf(stderr, "No memory for %s\n", cp);
@@ -141,10 +176,16 @@ void dumpsyms()
 {
 	register struct sym *sp;
 	int	i;
-	
-	for (i = 0; i < N_HASH; ++i) {
+
+	for (i = 0; i < N_HASH; ++i)
+	{
+	    sp = sym[i];
+	    if(sp == NULL)
+	    {
+	        continue;
+	    }
 		printf("%3d:", i);
-		for (sp = sym[i]; sp != NULL; sp = sp->s_fp) {
+		for (;sp != NULL; sp = sp->s_fp) {
 			if (sp->s_type == S_ARRAY)
 				printf(" %s(%d)", sp->s_id, sp->s_subs);
 			else
@@ -463,7 +504,7 @@ struct control *
 newcontrol()
 {
 	struct control *cp;
-	
+
 	if (ccb_free != NULL) {
 		cp = ccb_free;
 		ccb_free = cp->c_fp;
@@ -492,7 +533,7 @@ struct control *cp;
  *
  * There are two formats corresponding to
  * "for" and "do" statmenets.  "for" statiement
- * format differs from "do" statement format in 
+ * format differs from "do" statement format in
  * that the loop variables are saved.
  *  -- added by Akira Kida
  */
@@ -653,7 +694,7 @@ int getline(cp, fp)
 register char *cp;
 register FILE *fp;
 {
-	register c;
+	register int c;
 
 	while ((c=getc(fp))!=EOF && c!='\n')
 		*cp++ = c;
@@ -667,7 +708,7 @@ register FILE *fp;
 void type()
 {
 	register char *fmt;
-	register c;
+	register int c;
 static	char fmtb[20];
 static	int ifmtb = 1;
 	int x, y;
@@ -724,7 +765,8 @@ FILE *fp;
 {
 	struct lno lno;
 	register struct line *lp;
-	register tgroup, lgroup;
+	register int tgroup;
+	register int lgroup;
 
 	if (lnop == NULL) {
 		lno.ln_type = LN_ALL;
@@ -762,7 +804,7 @@ void erasesyms()
 {
 	register struct sym *sp1, *sp2;
 	int	i;
-	
+
 	for (i = 0; i < N_HASH; ++i) {
 		sp1 = sym[i];
 		sym[i] = NULL;

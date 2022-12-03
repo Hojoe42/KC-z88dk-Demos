@@ -103,7 +103,7 @@ void library()
 		static struct find_t	de;
 		static char	fname[FILENAME_MAX];
 		char	*s;
-		
+
 		if (d == 0)
 			strcpy(fname, "*.*");
 		else {
@@ -143,7 +143,7 @@ void library()
 		closedir(dp);
 #else
 		register int	fd = 0;
-		
+
 		if (d == 0)
 			p = ".";
 		if (stat(p, &sb) < 0
@@ -179,7 +179,7 @@ void library()
  */
 void catchcc()
 {
-	signal(SIGINT, (void (*) ARG((int)))onintr);
+//	signal(SIGINT, (void (*) ARG((int)))onintr);
 }
 
 /*

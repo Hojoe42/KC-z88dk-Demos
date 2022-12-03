@@ -11,7 +11,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <setjmp.h>
-#include <signal.h>
+//#include <signal.h>
 #include <math.h>
 
 #define	FUNCTIONS			/* enable functions */
