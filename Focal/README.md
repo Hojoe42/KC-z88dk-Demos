@@ -13,6 +13,7 @@ In [focal.doc](focal.doc) ist der Sprachumfang dieses Focal Interpreters beschri
 - Formatanweisungen müssen vollständig angegeben werden. `TYPE "A+B= ", %1, A+B!` muss durch `TYPE "A+B= ", %1.0, A+B!` ersetzt werden.
 - Es werden nur Runde Klammern unterstützt, diese können dafür geschachtelt werden.
 - Die Ausgabe der Symboltabelle mit `TYPE $` wird nicht unterstützt.
+- Strings müssen am Anfang und am Ende jeweils ein doppelte Hochkommas (") besitzen.
 
 ## Kompilieren
 
@@ -53,11 +54,11 @@ Ein Focal Programm zum Berechnen des Wochentags zu einem eingegebenem Datum:
 
 06.10 I (X) 6.26,6.20;I (X-2) 6.21,6.22,6.15
 06.15 I (X-4) 6.23,6.24;I (X-6) 6.25,6.26
-06.20 T "SUNDAY
-06.21 T "MONDAY
-06.22 T "TUESDAY
-06.23 T "WEDNESDAY
-06.24 T "THURSDAY
+06.20 T "SUNDAY"
+06.21 T "MONDAY"
+06.22 T "TUESDAY"
+06.23 T "WEDNESDAY"
+06.24 T "THURSDAY"
 06.25 T "FRIDAY";I (FABS(K-13)),6.30;
 06.26 T "SATURDAY"
 06.30 T " THE 13TH!!"
