@@ -9,7 +9,7 @@ ersten Einblick in die Syntax. Unter <http://bitsavers.informatik.uni-stuttgart.
 verschiedenen Dialekte der Sprache genauer beschreiben.
 
 In [focal.doc](focal.doc) ist der Sprachumfang dieses Focal Interpreters beschrieben. Einige besondere Eigenheiten:
-- Bei Sprüngen muss die vollständige Zeilennummer angegeben werden. `G 5.5` funktioniert nicht, es muss `G5.50` lauten.
+- Bei Sprüngen muss die vollständige Zeilennummer angegeben werden. `G 5.5` funktioniert nicht, es muss `G 5.50` lauten.
 - Formatanweisungen müssen vollständig angegeben werden. `TYPE "A+B= ", %1, A+B!` muss durch `TYPE "A+B= ", %1.0, A+B!` ersetzt werden.
 - Es werden nur Runde Klammern unterstützt, diese können dafür geschachtelt werden.
 - Die Ausgabe der Symboltabelle mit `TYPE $` wird nicht unterstützt.
@@ -23,11 +23,13 @@ verwendet.
 
 ## Vorschau
 
-Hier ein Bild von Focal auf dem KC Emulator: ![FocalAufKC.png](/images/FocalAufKC.png)
+Hier ein Bild von Focal auf dem KC Emulator: 
+
+![FocalAufKC.png](/images/FocalAufKC.png)
 
 ## Beispiel
 
-Hier der Code zum Berechnen des Wochentags zu einem eingegebenem Datum:
+Ein Focal Programm zum Berechnen des Wochentags zu einem eingegebenem Datum:
 
 ```
 01.01 C     CALNDR FROM 'PROGRAMMING LANGUAGES' COPYRIGHT 1970               
