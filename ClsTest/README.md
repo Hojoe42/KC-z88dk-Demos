@@ -13,10 +13,10 @@ $ zcc +kc -o cls.bin -create-app ClsTest.c
 
 ## sdcc
 
-Standardmäßig wird der sccz80 C Compiler verwendet. Obiger Aufruf wird daher mit sccz80 kompiliert. z88dk enthält noch einen 2. C Compiler, den zsdcc, 
-eine angepasste Variante des [sdcc](https://sourceforge.net/projects/sdcc/).
-Der sdcc generiert etwas anderen Assembler Code und möglicherweise ist der Optimizer etwas besser. Mit ist aufgefallen, das der sdcc mehr (berechtigte) 
-Warnungen ausgibt. Es kann sich ebenfalls anbieten seine C Programme mit dem sdcc zu kompilieren und Größe und Geschwindigkeit der erstellten Programme zu vergleichen.
+Standardmäßig wird beim kompilieren der sccz80 C Compiler verwendet. Obiger Aufruf wird daher mit sccz80 kompiliert. z88dk enthält noch einen 
+2. C Compiler, den zsdcc, eine angepasste Variante des [sdcc](https://sourceforge.net/projects/sdcc/).
+Der sdcc generiert etwas anderen Assembler Code und möglicherweise ist der Optimizer etwas besser. Mir ist aufgefallen, das der sdcc mehr (berechtigte) 
+Warnungen ausgibt. Es kann sich daher anbieten seine C Programme mit dem sdcc zu kompilieren und Größe und Geschwindigkeit der erstellten Programme zu vergleichen.
 
 ```
 zcc +kc -compiler sdcc -Cs--reserve-regs-iy -o cls-sdcc.bin -create-app ClsTest.c
