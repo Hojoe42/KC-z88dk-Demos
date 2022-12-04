@@ -21,3 +21,6 @@ Zeigt die Farbpalette des KC85/3 oder /4
 
 - [Schocky2](Schocky2/)
 Ein  Spiel für den KC 85/4+. Mehr oder weniger stark angelehnt an das Spiel Crillion vom C64.
+
+- [Focal](Focal/)
+Ein für den KC 85/2+ angepasster Focal Interpreter. Der Interpreter stammt von <http://www.catb.org/retro/>, nur die KC spezifischen Anpassungen sind von mir.
