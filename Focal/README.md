@@ -13,7 +13,8 @@ In [focal.doc](focal.doc) ist der Sprachumfang dieses Focal Interpreters beschri
 - Formatanweisungen müssen vollständig angegeben werden. `TYPE "A+B= ", %1, A+B!` muss durch `TYPE "A+B= ", %1.0, A+B!` ersetzt werden.
 - Es werden nur Runde Klammern unterstützt, diese können dafür geschachtelt werden.
 - Die Ausgabe der Symboltabelle mit `TYPE $` wird nicht unterstützt.
-- Strings müssen am Anfang und am Ende jeweils ein doppelte Hochkommas (") besitzen.
+- Strings müssen am Anfang und am Ende jeweils ein doppeltes Hochkomma (") besitzen.
+- Exponenten müssen mit kleinem e geschrieben werden: '1e6' -> eine Million
 
 ## Kompilieren
 
