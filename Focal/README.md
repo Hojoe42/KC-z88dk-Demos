@@ -41,14 +41,16 @@ Ein Focal Programm zum Berechnen des Wochentags zu einem eingegebenem Datum:
 01.05 C     GIVEN THE MONTH/DATE/YEAR, THE "PERPETUAL                                 
 01.06 C CALENDAR" WILL TYPE THE DAY OF THE WEEK.                                      
 01.07 
-01.30 A "WHAT IS THE DATE?  (MM/DD/YYYY) ",M,K,C
+01.30 A "WHAT IS THE DATE?  (MM/DD/YYYY) ",M,D,Y
 01.32 I (M-13) 1.35;T "IN ORDER TO MAKE ROOM FOR THE MONTHS, THERE WERE NO DAYS!"!;G 1.30
-01.35 I (K-32) 1.40;T "MONTHS WITH",%3.0,K," DAYS DON'T EXIST IN",%4.0,C,"!"!;G 1.30
-01.40 S C=C/100;S D=FITR(.1+100*(C-FITR(C)));S C=FITR(C)
-01.50 S M=M-2;I (M) 5.40,5.40;G 5.50
+01.35 I (D-32) 5.30;T "MONTHS WITH",%3.0,D," DAYS DON'T EXIST IN",%4.0,Y,"!"!;G 1.30
 
-05.40 S M=M+12;S D=D-1;I (-D) 5.50,5.50;S D=99;S C=C-1
-05.50 S X=FITR(FITR(2.6*M-.2)+K+D+FITR(D/4)+FITR(C/4)-2*C)
+05.30 S M=M-2;I (M) 5.40,5.40;G 5.45
+05.40 S M=M+12;S Y=Y-1;
+05.45 S C=FITR(Y/100);S Y=Y-100*C
+05.50 S X=D+FITR(2.6*M-.2)+Y+FITR(Y/4)+FITR(C/4)-2*C
+05.53 I (X) 5.55,5.60,5.60
+05.55 S X=X+7; G 5.53
 05.60 I (X-6) 5.70,5.70;S X=X-7;G 5.60
 05.70 T !"THE DAY IS ";D 6.10
 05.90 T !!;G 1.30
@@ -60,7 +62,9 @@ Ein Focal Programm zum Berechnen des Wochentags zu einem eingegebenem Datum:
 06.22 T "TUESDAY"
 06.23 T "WEDNESDAY"
 06.24 T "THURSDAY"
-06.25 T "FRIDAY";I (FABS(K-13)),6.30;
+06.25 T "FRIDAY";I (FABS(D-13)),6.30;
 06.26 T "SATURDAY"
 06.30 T " THE 13TH!!"
 ```
+
+
