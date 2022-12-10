@@ -16,6 +16,9 @@ Verwendung von clg() und clrscr(). Weiterhin wird farbiger Text an bestimmte Cur
 - [getkTest](getkTest/)
 Hier wird gezeigt wie die Tastatur nicht blockierend abgefragt werden kann.
 
+- [KeyboardTest](KeyboardTest/)
+Verschiedene Varianten um einzelne Zeichen oder ganze Strings von der Tastatur einzulesen.
+
 - [Farbpalette](Farbpalette/)
 Zeigt die Farbpalette des KC85/3 oder /4
 
