@@ -34,6 +34,7 @@ author
 #pragma printf = "%0s %0d %0f"
 
 #include	"focal.h"
+#include	<conio.h>
 #ifdef	vms
 #include	<stsdef.h>
 #include	<ssdef.h>
@@ -76,6 +77,7 @@ int main()
     // KC spezifische Initialisierung
     mallinit();
     sbrk(0x6500, 0x2000-0x500);
+    clrscr();
 
 
 	register int	c;
