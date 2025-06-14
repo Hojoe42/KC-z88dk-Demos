@@ -28,3 +28,6 @@ Ein  Spiel für den KC 85/4+. Mehr oder weniger stark angelehnt an das Spiel Cri
 - [Focal](Focal/)
 Ein für den KC 85/2+ angepasster Focal Interpreter. Der Interpreter stammt von <http://www.catb.org/retro/>, nur die KC und z88dk spezifischen 
 Anpassungen sind von mir.
+
+- [Digger Effekt](DiggerEffekt/)
+Ein kleines Programm welches das Glitzern der Diamanten in Digger nachstellt. 
